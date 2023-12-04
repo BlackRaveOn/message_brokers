@@ -2,6 +2,7 @@ import pika
 import argparse
 
 
+
 def produce_message(message: str = "Hello world!"):
     connection = pika.BlockingConnection(
         pika.ConnectionParameters(host="localhost")

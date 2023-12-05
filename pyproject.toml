@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "message_brokers"
+version = "0.0.1"
+description = "Brokers for nis homework"
+authors = [
+    "Denis Vedenskiy <dsvedenskiy@edu.hse.ru>",
+]
+readme = "README.md"
+repository = "https://github.com/BlackRaveOn/message_brokers"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+
+[tool.poetry.dependencies]
+python = "^3.11,<3.13"
+pre-commit = "^3.4.0"
+confluent_kafka = "^2.3.0"
+pika = "^1.3.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

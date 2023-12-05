@@ -1,0 +1,1 @@
+RABBIT_SERVER = "localhost"

@@ -1,9 +1,9 @@
 import pika
+from rabbit_config import RABBIT_SERVER
 
 
 def consume_message():
-    connection = pika.BlockingConnection(
-        pika.ConnectionParameters(host="localhost"))
+    connection = pika.BlockingConnection(pika.ConnectionParameters(host=RABBIT_SERVER))
     channel = connection.channel()
 
     channel.exchange_declare(exchange="messages", exchange_type="fanout")
@@ -18,8 +18,7 @@ def consume_message():
     def callback(ch, method, properties, body):
         print(body.decode("utf-8"))
 
-    channel.basic_consume(
-        queue=queue_name, on_message_callback=callback, auto_ack=True)
+    channel.basic_consume(queue=queue_name, on_message_callback=callback, auto_ack=True)
 
     channel.start_consuming()
 
